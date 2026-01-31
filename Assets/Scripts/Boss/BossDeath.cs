@@ -7,4 +7,6 @@ public class BossDeath : Death
         GameManager.instance.GameWin();
         Destroy(gameObject);
     }
+
+   
 }
