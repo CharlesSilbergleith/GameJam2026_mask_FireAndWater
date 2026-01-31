@@ -20,4 +20,7 @@ public abstract class Health : MonoBehaviour
             death.Die();
         }
     }
+    public float healthPercent() {
+        return health / maxHealth;
+    }
 }

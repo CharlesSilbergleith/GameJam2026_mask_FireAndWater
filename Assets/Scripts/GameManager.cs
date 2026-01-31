@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public Transform boss;
     public Health playerHealth;
     public Health healthBoss;
-    public PlayerShooting playerammo;
+    public PlayerShooting playerAmmo;
+    public Transform PlayerPos;
 
     void Awake()
     {
@@ -38,5 +39,16 @@ public class GameManager : MonoBehaviour
         if (boss == null) return;
 
         bossPath = bossPath.OrderBy(p => Vector3.Distance(boss.position, p.position)).ToList();
+    }
+    public void GameLoose() {
+        print("lost");
+        //TODO gameEnd
+        //send to end Screen
+    }
+    public void GameWin()
+    {
+        print("lost");
+        //TODO gameEnd
+        //send to end Screen
     }
 }

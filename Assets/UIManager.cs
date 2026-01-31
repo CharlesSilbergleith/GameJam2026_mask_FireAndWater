@@ -20,9 +20,11 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-
+        if (GameManager.instance == null) return;
         healthPlayer.fillAmount = GameManager.instance.playerHealth.healthPercent();
         healthBoss.fillAmount = GameManager.instance.healthBoss.healthPercent();
-        
+        ammo.fillAmount = GameManager.instance.playerAmmo.AmmoPercent();
+
+
     }
 }

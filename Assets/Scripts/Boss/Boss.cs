@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour
     public float timeToNextPoint;
     public bool atPoint;
 
+    public float turnSpeed;
+
     void Update()
     {
         
@@ -19,26 +21,44 @@ public class Boss : MonoBehaviour
         if (GameManager.instance.bossPath.Count == 0) return;
         if (pathNum >= GameManager.instance.bossPath.Count) return;
 
-        //make vars
         Transform targetPoint = GameManager.instance.bossPath[pathNum];
         Vector3 target = targetPoint.position;
-        if(GameManager.instance.bossPath.Count!= pathNum)
+
+        if (!atPoint)
         {
-            if (Vector3.Distance(transform.position, target) < 0.1f) {// If close enough → go to next point
-               timer += Time.deltaTime; 
+            Vector3 direction = targetPoint.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
+        else {
+            Transform playerTransform = GameManager.instance.PlayerPos;
+            Vector3 direction = playerTransform.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
+
+        //make vars
+
+        if (GameManager.instance.bossPath.Count != pathNum)
+        {
+            if (Vector3.Distance(transform.position, target) < 0.1f)
+            {// If close enough → go to next point
+                timer += Time.deltaTime;
                 atPoint = true;
                 if (timer >= timeToNextPoint)
                 {
                     NextPos();
                     timer = 0;
                 }
-            } else{
+            }
+            else
+            {
                 atPoint = false;
-                transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);   
+                transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             }
 
         }
         
+
+
     }
 
     public void NextPos()
@@ -48,9 +68,8 @@ public class Boss : MonoBehaviour
         // Optional: stop at last point
         if (pathNum >= GameManager.instance.bossPath.Count)
         {
-            pathNum = GameManager.instance.bossPath.Count - 1;
-            // OR disable movement:
-            // enabled = false;
+            GameManager.instance.GameLoose();
+
         }
     }
 }

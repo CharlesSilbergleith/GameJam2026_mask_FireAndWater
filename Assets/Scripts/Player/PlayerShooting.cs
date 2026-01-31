@@ -6,8 +6,8 @@ public class PlayerShooting : MonoBehaviour
     public Animator playerAnim;
     public GameObject bullet;
     public PlayerController controller;
-    public int maxAmmo;
-    int ammo;
+    public float maxAmmo;
+    public float ammo;
     private void Start()
     {
         Reload();
@@ -30,5 +30,9 @@ public class PlayerShooting : MonoBehaviour
     {
         ammo = maxAmmo;
     }
-    
+    public float AmmoPercent() {
+        return ammo / maxAmmo;
+    }
+
+
 }

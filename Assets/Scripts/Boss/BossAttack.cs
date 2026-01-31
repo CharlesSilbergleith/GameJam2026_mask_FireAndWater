@@ -4,7 +4,10 @@ public class BossAttack : MonoBehaviour
 {
     public Boss boss;
     public Collider[] rangeColliders, meleeColliders;
-    public float radiusForFire, resetStateTimer, timeTillReset, radiusForMelee; // flaots for attacking
+    public float radiusForFire, radiusForMelee; // flaots for attacking
+    public GameObject Bullet;
+    private float timer;
+    public float timeInbeetweenShots; 
     
     public float dmg;
     void Start() { 
@@ -14,6 +17,7 @@ public class BossAttack : MonoBehaviour
 
     private void Update()
     {
+
         if (boss != null) {
             if (boss.atPoint)
             {
@@ -29,6 +33,7 @@ public class BossAttack : MonoBehaviour
     }
 
     public void Attack() {
+        
         rangeColliders = Physics.OverlapSphere(transform.position, radiusForFire);
         meleeColliders = Physics.OverlapSphere(transform.position, radiusForMelee);
         for (int i = 0; i < meleeColliders.Length; i++)
@@ -47,8 +52,14 @@ public class BossAttack : MonoBehaviour
         {
             if (rangeColliders[i].tag == "Player")
             {
-                print("Fire");
-                return;
+               timer += Time.deltaTime;
+                //print("Fire");
+                if (timer >= timeInbeetweenShots)
+                {
+                    timer = 0;
+                    Instantiate(Bullet, transform.position, transform.rotation);
+                    return;
+                }
             }
 
         }

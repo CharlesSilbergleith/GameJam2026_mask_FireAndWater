@@ -13,7 +13,8 @@ public class PlayerStun : Death
     private void Update()
     {
         mover.enabled = isStunned <= 0;
-        playerAnim.SetBool("Stun", isStunned > 0);
+        if(playerAnim)
+            playerAnim.SetBool("Stun", isStunned > 0);
         if (isStunned > 0)
         {
             isStunned -= Time.deltaTime;
@@ -29,4 +30,4 @@ public class PlayerStun : Death
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-}
+
