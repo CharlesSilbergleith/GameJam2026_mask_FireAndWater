@@ -25,14 +25,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RegisterPoint(Transform point)
+    public void RegisterPoint(Transform point, int num)
     {
         if (!bossPath.Contains(point))
         {
-            bossPath.Add(point);
-            SortPointsByDistance();
+            num = Mathf.Clamp(num, 0, bossPath.Count);
+            bossPath.Insert(num, point);
+            //SortPointsByDistance();
         }
     }
+
 
     void SortPointsByDistance()
     {
