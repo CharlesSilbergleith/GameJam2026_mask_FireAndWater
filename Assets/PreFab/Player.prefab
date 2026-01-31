@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShooting
   playerAnim: {fileID: 0}
-  bullet: {fileID: 4397650075635495956, guid: 1d8bf4b2a8e8b8f46baee57d26baad61, type: 3}
+  bullet: {fileID: 2997968287062003364, guid: 1d8bf4b2a8e8b8f46baee57d26baad61, type: 3}
   controller: {fileID: 9046788379104633480}
   maxAmmo: 10
   ammo: 10

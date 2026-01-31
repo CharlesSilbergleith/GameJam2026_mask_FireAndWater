@@ -10,7 +10,7 @@ public abstract class Bullet : MonoBehaviour
     {
         // Move the bullet forward every frame
 
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.position += transform.forward * speed * Time.deltaTime;
 
 
 
