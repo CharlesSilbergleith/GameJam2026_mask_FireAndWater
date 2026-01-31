@@ -924,11 +924,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 17cd8cef-c6a5-4865-b524-9cea9b4dc06e
+  cloudProjectId: e4337b04-ed41-417b-a919-f79cfaa4cbc1
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Gamejam
-  organizationId: charlessilbergleith
+  projectName: GGJ 2026
+  organizationId: steedog31
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

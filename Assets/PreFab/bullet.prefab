@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799c3b898afb4f24d832b2db6630ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletPlayer
-  speed: 8
-  damage: 10
+  speed: 12
+  damage: 12.5
   lifetime: 3
 --- !u!135 &6435483786371787189
 SphereCollider:

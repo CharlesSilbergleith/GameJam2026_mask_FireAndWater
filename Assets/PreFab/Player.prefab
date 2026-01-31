@@ -61,8 +61,8 @@ GameObject:
   - component: {fileID: 7080750028153955143}
   - component: {fileID: 1221159406420523476}
   - component: {fileID: 7271585777115313533}
-  - component: {fileID: 6718335826816306300}
   - component: {fileID: 9046788379104633480}
+  - component: {fileID: 3387034713490375214}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -144,22 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   health: 100
   maxHealth: 100
-  death: {fileID: 6718335826816306300}
+  death: {fileID: 0}
   shooter: {fileID: 1273778838065648460}
---- !u!114 &6718335826816306300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5348628854615531948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e118e51ae11de0f408e67d4ca35de694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStun
-  playerAnim: {fileID: 0}
-  stunDuration: 0
 --- !u!114 &9046788379104633480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   inputs: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!114 &3387034713490375214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348628854615531948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f037ebf91b35db4c8ecdb7ce6c370c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStun
+  playerAnim: {fileID: 0}
+  stunDuration: 0
 --- !u!1 &5445089877942969166
 GameObject:
   m_ObjectHideFlags: 0
