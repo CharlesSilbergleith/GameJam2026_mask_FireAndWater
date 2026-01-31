@@ -3,21 +3,26 @@ using UnityEngine;
 public class BossAttack : MonoBehaviour
 {
     public Boss boss;
-    public Collider[] rangeColliders, meleeColliders;
+    public Animator animator;
     public float radiusForFire, radiusForMelee; // flaots for attacking
-    public GameObject Bullet;
     private float timer;
-    public float timeInbeetweenShots; 
+    public float timeInbeetweenShots;
     
     public float dmg;
+
+    public BossHit hitting;
     void Start() { 
         boss = GetComponent<Boss>();
-
+        timer = timeInbeetweenShots / 2f;
     }
 
     private void Update()
     {
-
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+            return;
+        }
         if (boss != null) {
             if (boss.atPoint)
             {
@@ -26,21 +31,20 @@ public class BossAttack : MonoBehaviour
             else { 
                 //TODO walk
             }
-        
-        
-        
         }
     }
 
-    public void Attack() {
-        
+    public void Attack() 
+    {
+        Collider[] rangeColliders, meleeColliders;
         rangeColliders = Physics.OverlapSphere(transform.position, radiusForFire);
         meleeColliders = Physics.OverlapSphere(transform.position, radiusForMelee);
         for (int i = 0; i < meleeColliders.Length; i++)
         {
             if (meleeColliders[i].tag == "Player")
             {
-                print("melee");
+                animator.SetTrigger("Punch");
+                timer = timeInbeetweenShots;
                 return;
             }
 
@@ -57,7 +61,8 @@ public class BossAttack : MonoBehaviour
                 if (timer >= timeInbeetweenShots)
                 {
                     timer = 0;
-                    Instantiate(Bullet, transform.position, transform.rotation);
+                    animator.SetTrigger("Shoot");
+                    timer = timeInbeetweenShots;
                     return;
                 }
             }

@@ -12,23 +12,28 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _DETAIL_SCALED
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
   - _PARALLAXMAP
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: Opaque
+    RenderType: Transparent
   disabledShaderPasses:
   - TransparentBackface
   - TransparentBackfaceDebugDisplay
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - MOTIONVECTORS
+  - DepthOnly
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -54,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9fee3a3c32b09a5438a940443fce39cf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -86,11 +91,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 0f27e0d94b1ce0e44a41446559e43425, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4038b547e8ec2fc498f465bcf1d74729, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 9fee3a3c32b09a5438a940443fce39cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0f27e0d94b1ce0e44a41446559e43425, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -191,7 +196,7 @@ Material:
     - _ColorShiftWorldSpaceOffset: 1
     - _Cull: 0
     - _Cutoff: 0.5
-    - _DetailAlbedoMapScale: 1
+    - _DetailAlbedoMapScale: 1.735
     - _DetailAlphaMode: 1
     - _DetailBlendMaxValue: 0.6
     - _DetailBlendMinValue: 0.4
@@ -208,8 +213,8 @@ Material:
     - _DetailSnowMode: 0
     - _DetailValue: 1
     - _DoubleSidedNormalMode: 1
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
     - _EmissiveFlagMode: 0
     - _EmissiveIntensityMode: 0
     - _EmissiveIntensityValue: 1
@@ -329,7 +334,7 @@ Material:
     - _SubsurfaceScatteringValue: 12.45
     - _SubsurfaceShadowValue: 1
     - _SubsurfaceValue: 1
-    - _Surface: 0
+    - _Surface: 1
     - _ThicknessFeather: 1
     - _ThicknessMapInverted: 0
     - _ThicknessStrength: 1.5
@@ -370,7 +375,7 @@ Material:
     - _WindLocalTurbulence: 0.35
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
-    - _ZWrite: 1
+    - _ZWrite: 0
     - __dirty: 1
     - _emissive_intensity_value: 1
     - _render_coverage: 0
