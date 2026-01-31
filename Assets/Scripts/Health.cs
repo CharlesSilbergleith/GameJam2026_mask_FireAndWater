@@ -6,6 +6,7 @@ public abstract class Health : MonoBehaviour
     public float maxHealth;
     public Death death;
 
+
     public void Start()
     {
         death = GetComponent<Death>();
@@ -20,7 +21,12 @@ public abstract class Health : MonoBehaviour
         if (health < 0)
         {
             death.Die();
-            health = maxHealth;
+
         }
     }
+    public float healthPercent(){
+        return health/maxHealth;
+    }
+
+
 }
