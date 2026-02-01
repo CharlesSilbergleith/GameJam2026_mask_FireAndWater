@@ -1,3 +1,6 @@
+using JetBrains.Annotations;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +10,10 @@ public class UIManager : MonoBehaviour
     public Image ammo;
     public Image healthPlayer;
     public Image healthBoss;
+    public Image blackScreen;
+    public TextMeshProUGUI expo;
+    private float timer;
+    public float expoTime;
     void Awake()
     {
         if (instance == null)
@@ -18,8 +25,19 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Start() {
+        
+    }
     void Update()
     {
+       
+            timer += Time.deltaTime;
+            if (timer > expoTime)
+            {
+                expo.enabled = false; ;
+                blackScreen.enabled = false;
+           }
+        
         if (GameManager.instance == null) return;
         healthPlayer.fillAmount = GameManager.instance.playerHealth.healthPercent();
         healthBoss.fillAmount = GameManager.instance.healthBoss.healthPercent();

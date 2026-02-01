@@ -30,12 +30,14 @@ public class Boss : MonoBehaviour
             if (!atPoint)
             {
                 Vector3 direction = targetPoint.position - transform.position;
+                direction.y = 0;
                 transform.rotation = Quaternion.LookRotation(direction);
             }
             else
             {
                 Transform playerTransform = GameManager.instance.PlayerPos;
                 Vector3 direction = playerTransform.position - transform.position;
+                direction.y = 0;
                 transform.rotation = Quaternion.LookRotation(direction);
             }
 

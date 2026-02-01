@@ -9,6 +9,8 @@ public class setCanMove : MonoBehaviour
     {
         if (other.tag == "Player") { 
             boss.canMove=true;
+            GameManager.instance.StartGame();
         }
+
     }
 }

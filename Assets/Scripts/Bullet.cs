@@ -18,6 +18,10 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        HitThing(other);
+    }
+    public virtual void HitThing(Collider other)
+    {
         // Example: if it hits something with a "Health" component, apply damage
         Health targetHealth = other.GetComponent<Health>();
         if (targetHealth != null)

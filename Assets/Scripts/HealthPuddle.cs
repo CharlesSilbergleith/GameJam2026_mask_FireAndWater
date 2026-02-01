@@ -2,20 +2,13 @@ using UnityEngine;
 
 public class HealthPuddle : MonoBehaviour
 {
-    public Transform puddle;
-    public int uses;
-    public float downAmount;
+    public ParticleSystem particle;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            puddle.position -= Vector3.down * downAmount;
-            uses--;
             other.GetComponent<PlayerHealth>().RefillHealth();
-        }
-        if (uses <= 0)
-        {
-            Destroy(gameObject);
+            particle.Play();
         }
     }
 }

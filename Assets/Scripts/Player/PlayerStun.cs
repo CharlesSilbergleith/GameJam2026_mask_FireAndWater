@@ -2,28 +2,25 @@ using UnityEngine;
 
 public class PlayerStun : Death
 {
-    PlayerMoveScript mover;
     public Animator playerAnim;
     public float stunDuration;
-    float isStunned;
-    void Start()
-    {
-        mover = GetComponent<PlayerMoveScript>();
-    }
+   public float isStunned;
     private void Update()
     {
-        mover.enabled = isStunned <= 0;
         if(playerAnim)
             playerAnim.SetBool("Stun", isStunned > 0);
         if (isStunned > 0)
         {
             isStunned -= Time.deltaTime;
-            mover.FallingLogic();
         }
     }
     public override void Die()
     {
         isStunned = stunDuration;
+    }
+    public bool getIsStunned()
+    {
+        return isStunned > 0;
     }
 
 }

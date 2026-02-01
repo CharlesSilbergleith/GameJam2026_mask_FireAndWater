@@ -56,15 +56,9 @@ public class BossAttack : MonoBehaviour
         {
             if (rangeColliders[i].tag == "Player")
             {
-               timer += Time.deltaTime;
-                //print("Fire");
-                if (timer >= timeInbeetweenShots)
-                {
-                    timer = 0;
-                    animator.SetTrigger("Shoot");
-                    timer = timeInbeetweenShots;
-                    return;
-                }
+                animator.SetTrigger("Shoot");
+                timer = timeInbeetweenShots;
+                return;
             }
 
         }

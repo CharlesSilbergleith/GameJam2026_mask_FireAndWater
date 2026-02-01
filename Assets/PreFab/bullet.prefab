@@ -34,19 +34,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.4820083
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4820083
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5173664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5173664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 4054.053
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47a21f0b5b77c224695dc89c61f4b9bb, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799c3b898afb4f24d832b2db6630ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletPlayer
-  speed: 10
+  speed: 20
   damage: 10
-  lifetime: 5
+  lifetime: 3
 --- !u!136 &1685687318135289798
 CapsuleCollider:
   m_ObjectHideFlags: 0

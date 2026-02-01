@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public Health healthBoss;
     public PlayerShooting playerAmmo;
     public Transform PlayerPos;
-
+    public Collider tree;
+    public Collider end;
     void Awake()
     {
         if (instance == null)
@@ -25,12 +26,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RegisterPoint(Transform point, int num)
+    public void RegisterPoint(Transform point)//, int num)
     {
         if (!bossPath.Contains(point))
         {
-            num = Mathf.Clamp(num, 0, bossPath.Count);
-            bossPath.Insert(num, point);
+            bossPath.Add(point);
+            //num = Mathf.Clamp(num, 0, bossPath.Count);
+            //bossPath.Insert(num, point);
             //SortPointsByDistance();
         }
     }
@@ -50,7 +52,13 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         print("lost");
+        end.enabled = false;
+        RenderSettings.fog = false;
         //TODO gameEnd
         //send to end Screen
+    }
+    public void StartGame() { 
+        tree.enabled = true;
+
     }
 }

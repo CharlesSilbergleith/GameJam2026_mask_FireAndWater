@@ -3,10 +3,11 @@ using UnityEngine;
 public class BossPath : MonoBehaviour
 {
     public int numInOrder;
-    void Start()
+    void Update()
     {
-        GameManager.instance.RegisterPoint(transform,numInOrder);
+        if (GameManager.instance.bossPath.Count < numInOrder) return;
+        GameManager.instance.RegisterPoint(transform);//, numInOrder);
+        Destroy(this);
     }
 
-  
 }
