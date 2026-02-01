@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    public Image ammo;
-    public Image healthPlayer;
-    public Image healthBoss;
+    public Slider ammo;
+    public Slider healthPlayer;
+    public Slider healthBoss;
     public Image blackScreen;
     public TextMeshProUGUI expo;
     private float timer;
@@ -39,9 +39,9 @@ public class UIManager : MonoBehaviour
            }
         
         if (GameManager.instance == null) return;
-        healthPlayer.fillAmount = GameManager.instance.playerHealth.healthPercent();
-        healthBoss.fillAmount = GameManager.instance.healthBoss.healthPercent();
-        ammo.fillAmount = GameManager.instance.playerAmmo.AmmoPercent();
+        healthPlayer.value = GameManager.instance.playerHealth.healthPercent();
+        healthBoss.value = GameManager.instance.healthBoss.healthPercent();
+        ammo.value = GameManager.instance.playerAmmo.AmmoPercent();
 
 
     }

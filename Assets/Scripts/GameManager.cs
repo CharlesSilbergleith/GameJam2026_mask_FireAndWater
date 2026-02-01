@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class GameManager : MonoBehaviour
     public Transform PlayerPos;
     public Collider tree;
     public Collider end;
+    public Camera cam;
+    public GameObject firewall;
+    public InputActionAsset inputs;
+
+
     void Awake()
     {
         if (instance == null)
@@ -23,6 +30,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+    void Update()
+    {
+        if (inputs["exit"].triggered)
+        {
+            Debug.Log("Quit pressed");
+            Application.Quit();
         }
     }
 
@@ -46,19 +61,43 @@ public class GameManager : MonoBehaviour
     }
     public void GameLoose() {
         print("lost");
+        looseScreen();
         //TODO gameEnd
         //send to end Screen
     }
     public void GameWin()
     {
-        print("lost");
-        end.enabled = false;
+        print("Win");
+
+        if (end != null)
+            end.enabled = false;
+
         RenderSettings.fog = false;
-        //TODO gameEnd
-        //send to end Screen
+        Destroy(firewall);
+        cam.backgroundColor = new Color(0.1f, .4f, 1);
     }
+
     public void StartGame() { 
         tree.enabled = true;
 
     }
+    public void winScreen() {
+        ShowCursor();
+        SceneManager.LoadScene("WinSceene");
+    }
+    public void looseScreen() {
+        ShowCursor();
+        SceneManager.LoadScene("looseScene");
+    }
+    public static void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public static void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
 }
